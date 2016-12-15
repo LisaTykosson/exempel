@@ -24,7 +24,7 @@
         </ul>
         <br />
         <ul class="nav nav-justified navbar-default nav-tabs" style="width:35%">
-            <li role="presentation"><a href="Form4.html">Onkologisk behandling</a></li>
+            <li role="presentation"><a href="Form6.html">Onkologisk behandling</a></li>
             <li role="presentation" class="active" id="kir"><a href="Form5.html">Patientöversikt exempel läkemdel</a></li>
         </ul>
     </div>
@@ -251,97 +251,18 @@
                     <button class="btn btn-success" onclick="insRows()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till händelse  </button>
                     <br />
                     <br />
-
+                    <button class="btn btn-danger pull-right" onclick="bortsub()" id="subs"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>      Radera substans    </button>
+                    
                 </div>
                 <button class="btn btn-primary" onclick="nysub()" id="nyasubs"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till substans    </button>
                 <br />
                 <br />
-                <button class="btn btn-danger" id="hider"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>      Avsluta behandlingslinje     </button>
+                
+                <button class="btn btn-primary" id="hider"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>      Avsluta behandlingslinje     </button>
             </div>
         </div>
     </div>
-    <div class="panel panel-default center-block" style="width:70%">
-        <div class="panel panel-default panel-heading panel-title">Strålbehandling</div>
-        <div class="panel panel-body">
-            <button class="btn btn-primary" id="addstral" onclick="addstr()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till strålbehandling     </button>
-            <br />
-            <br />
-            <div id="adderastr" style="display:none">
-                <button class="btn btn-danger" id="hiders" onclick="hides()"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>      Radera strålbehandling     </button>
-                <br />
-                <br />
-                <div class="row form-group">
-                    <label class="control-label col-sm-3">Startdatum</label>
-                    <div class="col-xs-3">
-                        <input type="text" class="form-control" placeholder="2016-12-15" />
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <label class="control-label col-sm-3">Slutdatum</label>
-                    <div class="col-xs-3">
-                        <input type="date" class="form-control" />
-                    </div>
-                </div>
-               
-                <div class="row form-group">
-                    <label class="control-label col-sm-3">Behandlingssyfte</label>
-                    <div class="col-xs-3">
-                        <select class="form-control">
-                            <option value="0">--Välj--</option>
-                            <option value="1">Neoadjuvant</option>
-                            <option value="2">Adjuvant</option>
-                            <option value="3">Definitiv kemoradioterapi</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <label class="control-label col-sm-3">Behandlingstyp</label>
-                    <div class="col-xs-3">
-                        <select class="form-control">
-                            <option value="0">--Välj--</option>
-                            <option value="1">Radiotearpi (extern)</option>
-                            <option value="2">Kemoterapi</option>
-                            <option value="3">Brachyterapi</option>
-                        </select>
-                    </div>
-                </div>
-                <br />
-                <br />
-                <table class="table table-striped" id="StralTable">
-                    <thead>
-                        <tr>
-                            <th class="table-striped">Dos per fraktion</th>
-                            <th class="table-striped">Slutdos </th>
-                            <th class="table-striped">Bestrålat mot</th>
-                            <th class="table-striped ">Radera händelse</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr>
-                                <td><input type="text" class="form-control col-xs-3" />   </td>
-                                <td>
-                                    <input type="text" class="form-control col-xs-3" />
-                                </td>
-                                <td>
-                                    <select class="form-control col-xs-3">
-                                        <option value="0">--Välj--</option>
-                                        <option value="1">Primärtumör</option>
-                                        <option value="2">Fjärrmetastas</option>
-                                        <option value="3">Lymfkörtelmetastas</option>
-                                    </select>
-                                </td>
-                                <td><button class="btn btn-danger" onclick="deletestrRows(this)"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button> </td>
-                            </tr>
-
-                        </tbody>
-                </table>
-                <button class="btn btn-success" onclick="insertRows()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till grupp  </button>
-                <br />
-                <br />
-            </div>
-            </div>
-        </div>
+   
 </body>
 </html>
 <script type="text/javascript">
@@ -382,27 +303,18 @@
             document.getElementById("addera").style.display = "block";
         }
     }
-    function addstr() {
-        if (document.getElementById("addstral").onclick)
-            document.getElementById("adderastr").style.display = "block";
-
-
-        else {
-            document.getElementById("adderastr").style.display = "none";
-        }
-    }
-    function hides() {
-        if (document.getElementById("hiders").onclick)
-            document.getElementById("adderastr").style.display = "none";
-
-
-        else {
-            document.getElementById("adderastr").style.display = "block";
-        }
-    }
+  
     function nysub() {
         if (document.getElementById("nyasubs").onclick)
             document.getElementById("substans").style.display = "block";
+
+        else {
+            document.getElementById("substans").style.display = "none";
+        }
+    }
+    function bortsub() {
+        if (document.getElementById("subs").onclick)
+            document.getElementById("substans").style.display = "none";
 
         else {
             document.getElementById("substans").style.display = "none";
@@ -416,11 +328,7 @@
         var i = row.parentNode.parentNode.rowIndex;
         document.getElementById('HandelseTable2').deleteRow(i);
     }
-    function deletestrRows(row) {
-        var i = row.parentNode.parentNode.rowIndex;
-        document.getElementById('StralTable').deleteRow(i);
-    }
-
+  
    
         function insRow() {
             const table = document

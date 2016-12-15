@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="JavaS/bootstrap.js"></script>
+    <script src="JavaS/npm.js"></script>
+    <script src="JavaScript.js"></script>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <br />
+    <br />
+    <div style="width:70%" class="center-block">
+        <ul class="nav nav-tabs nav-justified navbar-default">
+            <li role="presentation" id="diag" class="active"><a href="Form6.html">Strålbehandling</a></li>
+            <li role="presentation" id="kir"><a href="Form5.html">Läkemedel</a></li>
+
+        </ul>
+        <br />
+     
+    </div>
+    <br />
+    <div class="panel panel-default center-block" style="width:70%">
+        <div class="panel panel-default panel-heading panel-title">Strålbehandling</div>
+        <div class="panel panel-body">
+            <button class="btn btn-primary" id="addstral" onclick="addstr()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till strålbehandling     </button>
+            <br />
+            <br />
+            <div id="adderastr" style="display:none">
+                <button class="btn btn-danger" id="hiders" onclick="hides()"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>      Radera strålbehandling     </button>
+                <br />
+                <br />
+                <div class="row form-group">
+                    <label class="control-label col-sm-3">Startdatum</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" placeholder="2016-12-15" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="control-label col-sm-3">Slutdatum</label>
+                    <div class="col-xs-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="control-label col-sm-3">Behandlingssyfte</label>
+                    <div class="col-xs-3">
+                        <select class="form-control">
+                            <option value="0">--Välj--</option>
+                            <option value="1">Neoadjuvant</option>
+                            <option value="2">Adjuvant</option>
+                            <option value="3">Definitiv kemoradioterapi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="control-label col-sm-3">Behandlingstyp</label>
+                    <div class="col-xs-3">
+                        <select class="form-control">
+                            <option value="0">--Välj--</option>
+                            <option value="1">Radiotearpi (extern)</option>
+                            <option value="2">Kemoterapi</option>
+                            <option value="3">Brachyterapi</option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <table class="table table-striped" id="StralTable">
+                    <thead>
+                        <tr>
+                            <th class="table-striped">Dos per fraktion</th>
+                            <th class="table-striped">Slutdos </th>
+                            <th class="table-striped">Bestrålat mot</th>
+                            <th class="table-striped ">Radera händelse</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="form-control col-xs-3" />   </td>
+                            <td>
+                                <input type="text" class="form-control col-xs-3" />
+                            </td>
+                            <td>
+                                <select class="form-control col-xs-3">
+                                    <option value="0">--Välj--</option>
+                                    <option value="1">Primärtumör</option>
+                                    <option value="2">Fjärrmetastas</option>
+                                    <option value="3">Lymfkörtelmetastas</option>
+                                </select>
+                            </td>
+                            <td><button class="btn btn-danger" onclick="deletestrRows(this)"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button> </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <button class="btn btn-success" onclick="insertRows()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till grupp  </button>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function addstr() {
+            if (document.getElementById("addstral").onclick)
+                document.getElementById("adderastr").style.display = "block";
+
+
+            else {
+                document.getElementById("adderastr").style.display = "none";
+            }
+        }
+        function hides() {
+            if (document.getElementById("hiders").onclick)
+                document.getElementById("adderastr").style.display = "none";
+
+
+            else {
+                document.getElementById("adderastr").style.display = "block";
+            }
+        }
+        function insertRows() {
+            const table = document
+             .querySelector('#StralTable');
+
+            const body = table
+                .querySelector('tbody')
+
+            const html = `
+                  <tr>
+                                <td><input type="text" class ="form-control col-xs-3" />   </td>
+                                <td>
+                                    <input type="text" class ="form-control col-xs-3" />
+                                </td>
+                                <td>
+                                    <select class ="form-control col-xs-3">
+                                        <option value="0">--Välj--</option>
+                                        <option value="1">Primärtumör</option>
+                                        <option value="2">Fjärrmetastas</option>
+                                        <option value="3">Lymfkörtelmetastas</option>
+                                    </select>
+                                </td>
+                                <td><button class ="btn btn-danger" onclick="deletestrRows(this)"><span class ="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button> </td>
+                            </tr>
+
+
+                       `;
+            body.innerHTML += html;
+        }
+        function deletestrRows(row) {
+            var i = row.parentNode.parentNode.rowIndex;
+            document.getElementById('StralTable').deleteRow(i);
+        }
+
+
+    </script>
+</body>
+</html>
