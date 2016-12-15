@@ -27,12 +27,6 @@
             <li role="presentation"><a href="Form4.html">Onkologisk behandling</a></li>
             <li role="presentation" class="active" id="kir"><a href="Form5.html">Patientöversikt exempel läkemdel</a></li>
         </ul>
-        </div>
-        <br />
-        <div class="panel panel-default center-block" style="width:70%">
-            <div class="panel panel-default panel-heading panel-title">Läkemedel</div>
-            <div class="panel panel-body">
-                <button class="btn btn-primary" id="adding" onclick="add()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till läkemedelslinje     </button>
     </div>
     <br />
     <div class="panel panel-default center-block" style="width:70%">
@@ -229,7 +223,6 @@
                         <input type="date" class="form-control" />
                     </div>
                 </div>
-
                 <div class="row form-group">
                     <label class="control-label col-sm-3">Behandlingssyfte</label>
                     <div class="col-xs-3">
@@ -311,8 +304,6 @@
                 <br />
             </div>
             </div>
-
-
         </div>
 </body>
 </html>
@@ -329,6 +320,7 @@
     function hide() {
         if (document.getElementById("hider").onclick)
             document.getElementById("addera").style.display = "none";
+
         else {
             document.getElementById("addera").style.display = "block";
         }
@@ -337,6 +329,7 @@
     function addstr() {
         if (document.getElementById("addstral").onclick)
             document.getElementById("adderastr").style.display = "block";
+
         else {
             document.getElementById("adderastr").style.display = "none";
         }
