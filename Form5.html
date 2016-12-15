@@ -36,6 +36,9 @@
             <br />
             <br />
             <div id="addera" style="display:none">
+                <button class="btn btn-danger" id="hider" onclick="hide()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Radera läkemedelslinje     </button>
+                <br />
+                <br />
                 <div class="row form-group">
                     <label class="control-label col-sm-3">Kategori</label>
                     <div class="col-xs-3">
@@ -230,6 +233,9 @@
             <br />
             <br />
             <div id="adderastr" style="display:none">
+                <button class="btn btn-danger" id="hiders" onclick="hides()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Radera läkemedelslinje     </button>
+                <br />
+                <br />
                 <div class="row form-group">
                     <label class="control-label col-sm-3">Startdatum</label>
                     <div class="col-xs-3">
@@ -312,6 +318,15 @@
             document.getElementById("addera").style.display = "none";
         }
     }
+    function hide() {
+        if (document.getElementById("hider").onclick)
+            document.getElementById("addera").style.display = "none";
+
+
+        else {
+            document.getElementById("addera").style.display = "block";
+        }
+    }
     function addstr() {
         if (document.getElementById("addstral").onclick)
             document.getElementById("adderastr").style.display = "block";
@@ -319,6 +334,15 @@
 
         else {
             document.getElementById("adderastr").style.display = "none";
+        }
+    }
+    function hides() {
+        if (document.getElementById("hiders").onclick)
+            document.getElementById("adderastr").style.display = "none";
+
+
+        else {
+            document.getElementById("adderastr").style.display = "block";
         }
     }
     function nysub() {
