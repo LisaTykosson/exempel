@@ -17,16 +17,12 @@
     <br />
     <div style="width:70%" class="center-block">
         <ul class="nav nav-tabs nav-justified navbar-default">
-            <li role="presentation" id="diag"><a href="Index.html">Diagnostik</a></li>
-            <li role="presentation" id="kir"><a href="Opdata.html">Kirurgisk/Endoluminal behandling</a></li>
+            <li role="presentation" id="diag" ><a href="Form6.html">Strålbehandling</a></li>
+            <li role="presentation" id="kir" class="active"><a href="Form5.html">Läkemedel</a></li>
 
-            <li role="presentation" id="vard" class="active"><a href="Form4.html">Onkologisk behandling   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></a></li>
         </ul>
         <br />
-        <ul class="nav nav-justified navbar-default nav-tabs" style="width:35%">
-            <li role="presentation"><a href="Form6.html">Onkologisk behandling</a></li>
-            <li role="presentation" class="active" id="kir"><a href="Form5.html">Patientöversikt exempel läkemdel</a></li>
-        </ul>
+
     </div>
     <br />
     <div class="panel panel-default center-block" style="width:70%">
@@ -107,7 +103,7 @@
                                 <th>Datum</th>
                                 <th>Händelse</th>
                                 <th>Orsak</th>
-                                <th id="orsak" style="display:none">Ange biverkan</th>
+                                <th style="display:none">Ange biverkan</th>
                                 <th>Radera händelse</th>
 
                             </tr>
@@ -137,7 +133,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select class="form-control" id="hand" onchange="visning()">
+                                    <select class="form-control">
                                         <option value="0">--Välj--</option>
                                         <option value="1">Biverkan</option>
                                         <option value="2">Planerat stopp</option>
@@ -145,22 +141,7 @@
 
                                     </select>
                                 </td>
-                                <td id="biv" style="display:none">
-                                    <select class="form-control">
-                                        <option value="0">--Välj--</option>
-                                        <option value="1">Allergi/Immunologi</option>
-                                        <option value="2">Dermatoslogi</option>
-                                        <option value="3">Renal </option>
-                                        <option value="4">CNS</option>
-                                        <option value="5">Blod/Benmärg</option>
-                                        <option value="6">Gastrointestinal </option>
-                                        <option value="7">Cardiovaskulär</option>
-                                        <option value="8">Pulmonary</option>
-                                        <option value="9">Hepatic</option>
-                                        <option value="10">Musculosketal </option>
-                                        <option value="11">Annan</option>
-                                    </select>
-                                </td>
+                             
 
                                 <td><button class="btn btn-danger" onclick="deleteRow(this)"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button> </td>
                             </tr>
@@ -172,7 +153,7 @@
                     <br />
                     <br />
                 </div>
-                <button class="btn btn-success" onclick="blabla()" id="tab"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>      Lägg till händelse  </button>
+                
                 <hr />
                 <br />
                 <br />
@@ -228,12 +209,12 @@
                                     <th>Datum</th>
                                     <th>Händelse</th>
                                     <th>Orsak</th>
-                                    <th id="orsak" style="display:none">Biverkan</th>
+                                    <th id="orsak" style="display:none">Ange biverkan</th>
                                     <th>Radera händelse</th>
 
                                 </tr>
                                 <tr>
-                                    <td><input type="text" class="form-control col-xs-3" placeholder="Här visas ovan vald substans för tydlighet" /> </td>
+                                    <td><input type="text" class="form-control col-xs-3" placeholder="Här visas endast ovan valda substanser i lista" /> </td>
                                     <td>
                                         <input type="date" class="form-control col-xs-3" />
 
@@ -256,12 +237,28 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <select class="form-control">
+                                        <select class="form-control"  id="hand" onchange="visning()">
                                             <option value="0">--Välj--</option>
                                             <option value="1">Biverkan</option>
                                             <option value="2">Planerat stopp</option>
                                             <option value="3">Patientens önskemål</option>
 
+                                        </select>
+                                    </td>
+                                    <td id="biv" style="display:none">
+                                        <select class="form-control">
+                                            <option value="0">--Välj--</option>
+                                            <option value="1">Allergi/Immunologi</option>
+                                            <option value="2">Dermatoslogi</option>
+                                            <option value="3">Renal </option>
+                                            <option value="4">CNS</option>
+                                            <option value="5">Blod/Benmärg</option>
+                                            <option value="6">Gastrointestinal </option>
+                                            <option value="7">Cardiovaskulär</option>
+                                            <option value="8">Pulmonary</option>
+                                            <option value="9">Hepatic</option>
+                                            <option value="10">Musculosketal </option>
+                                            <option value="11">Annan</option>
                                         </select>
                                     </td>
                                     <td><button class="btn btn-danger" onclick="deleteRows(this)"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> </button> </td>
